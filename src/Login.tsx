@@ -2,16 +2,16 @@ import { auth } from './firebaseConfig.ts';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
-const SignUp: React.FC = () => {
+const Login: React.FC = () => {
 
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 
-	const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
-		createUserWithEmailAndPassword(auth, email, password)
+		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed up 
 				const user = userCredential.user;
@@ -26,7 +26,7 @@ const SignUp: React.FC = () => {
 	
 	return (
 		<>
-			<form onSubmit={handleSignUp}>
+			<form onSubmit={handleLogin}>
 
 				<label>Email</label>
 				<input
@@ -43,11 +43,11 @@ const SignUp: React.FC = () => {
 					onChange = { (e) => setPassword(e.target.value)}
 					placeholder = "*****"
 				/>
-				<button>Sign Up</button>
+				<button>Login</button>
 			</form>
 		</>
 	);
 
 }
 
-e
+export default Login;

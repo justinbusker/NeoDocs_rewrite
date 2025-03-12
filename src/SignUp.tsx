@@ -28,7 +28,7 @@ const SignUp: React.FC = () => {
 		<>
 			<form onSubmit={handleSignUp}>
 
-				<label>Email</label>
+				<label className="font-bold">Email</label>
 				<input
 					type="text" 
 					value={email}
