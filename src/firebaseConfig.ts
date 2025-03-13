@@ -1,8 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from "firebase/auth";
 
+
 const firebaseConfig = {
-	apiKey: "AIzaSyBdLzHXP2EjCsckTTq13GXxj77wbptzD0c",
+	apiKey: import.meta.env.VITE_API_KEY,
 
 	authDomain: "neodocs-1c88e.firebaseapp.com",
 
@@ -17,6 +18,7 @@ const firebaseConfig = {
 	measurementId: "G-HYN3L6H7EJ"
 };
 
+console.log(import.meta.env.API_KEY)
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth();
