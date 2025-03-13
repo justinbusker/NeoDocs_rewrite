@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,10 +8,15 @@ import Header from './Header.tsx'
 
 function App() {
 
+	const [user, setUser] = useState(null)
+
+
   return (
     <>
 			<Header />
-			<SignUp />
+			<Routes>
+				<Route path="/signup" element={<SignUp />} />
+			</Routes>
     </>
   )
 }

@@ -28,23 +28,32 @@ const Login: React.FC = () => {
 		<>
 			<form onSubmit={handleLogin}>
 
-				<label>Email</label>
+				<div className=" flex flex-col ml-2 border-lime-400 border-l-2 ">
+				<label className="ml-2 text-xl font-bold text-[#AFDEDC]">Email</label>
 				<input
 					type="text" 
 					value={email}
 					onChange = { (e) => setEmail(e.target.value)}
 					placeholder = "john@example.com"
+					className = "ml-2 mb-1 border text-white rounded-md w-[20vw]"
 				/>
 
-				<label>Password</label>
+				<label className="ml-2 mb-1 font-bold text-[#AFDEDC]">Password</label>
 				<input
 					type="password"
 					value={password}
 					onChange = { (e) => setPassword(e.target.value)}
 					placeholder = "*****"
+					className = "ml-2 mb-1 border text-white rounded-md w-[20vw]"
 				/>
-				<button>Login</button>
+
+				<button className = "cursor-pointer ml-2 mb-1 border border-white rounded-md text-[#AFDEDC] font-bold w-[20vw]">Login</button>
+				{alert && (
+					<label className="text-red-400 ml-2 font-bold">{alertMessage}</label>
+				)}
+				</div>
 			</form>
+
 		</>
 	);
 
