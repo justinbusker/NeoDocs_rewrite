@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
 body {
-	background-color: #1C2833;
+	background-color: #232323;
+}
+
+.glow {
+	text-shadow: 
+    0 0 4px #93A1B5,   /* Adjust the blur radius here */
+    0 0 8px #93A1B5, 
+    0 0 12px #93A1B5;
 }
