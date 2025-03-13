@@ -1,12 +1,19 @@
 import { auth } from './firebaseConfig.ts';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword} from "firebase/auth";
 import { useState } from 'react';
+import { useAuth } from './AuthContext.tsx'
+import { Navigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
 
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [alert, setAlert] = useState(false)
+	const [alertMessage, setAlertMessage] = useState("")
+
+
+	const {user, loading} = useAuth();
 
 	const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -15,14 +22,28 @@ const Login: React.FC = () => {
 			.then((userCredential) => {
 				// Signed up 
 				const user = userCredential.user;
-				console.log(`Created new user ${user}`)
 			})
 			.catch((error) => {
 				const errorCode = error.code;
 				const errorMessage = error.message;
+				switch (errorCode){
+					case "auth/invalid-email":
+						setAlertMessage("Invalid email address!")
+						break;
+					case "auth/email-already-in-use":
+						setAlertMessage("Email is already in use!")
+						break;
+				}
+
+				setAlert(true)
+
 			});
 	}
 
+
+	if (user) {
+		return <Navigate to="/" replace />
+	}
 	
 	return (
 		<>
