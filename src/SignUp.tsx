@@ -1,6 +1,7 @@
 import { auth } from './firebaseConfig.ts';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 
 const SignUp: React.FC = () => {
 
@@ -9,6 +10,7 @@ const SignUp: React.FC = () => {
 	const [password, setPassword] = useState("")
 	const [alert, setAlert] = useState(false)
 	const [alertMessage, setAlertMessage] = useState("")
+	const navigate = useNavigate()
 
 	const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -63,6 +65,7 @@ const SignUp: React.FC = () => {
 				/>
 
 				<button className = "cursor-pointer ml-2 mb-1 border border-white rounded-md text-[#AFDEDC] font-bold w-[20vw]">Sign Up</button>
+					<p className=" ml-2 text-white">Have an account? <button className="cursor-pointer" onClick={() => navigate("/login")}>Login here</button></p>
 				{alert && (
 					<label className="text-red-400 ml-2 font-bold">{alertMessage}</label>
 				)}

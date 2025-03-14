@@ -2,7 +2,7 @@ import { auth } from './firebaseConfig.ts';
 import { signInWithEmailAndPassword} from "firebase/auth";
 import { useState } from 'react';
 import { useAuth } from './AuthContext.tsx'
-import { Navigate } from 'react-router-dom'
+import {useNavigate, Navigate } from 'react-router-dom'
 
 const Login: React.FC = () => {
 
@@ -11,6 +11,7 @@ const Login: React.FC = () => {
 	const [password, setPassword] = useState("")
 	const [alert, setAlert] = useState(false)
 	const [alertMessage, setAlertMessage] = useState("")
+	const navigate = useNavigate()
 
 
 	const {user, loading} = useAuth();
@@ -69,6 +70,7 @@ const Login: React.FC = () => {
 				/>
 
 				<button className = "cursor-pointer ml-2 mb-1 border border-white rounded-md text-[#AFDEDC] font-bold w-[20vw]">Login</button>
+					<p className=" ml-2 text-white">New to NeoDocs?  <button className="cursor-pointer" onClick={() => navigate("/signup")}>Sign up here</button></p>
 				{alert && (
 					<label className="text-red-400 ml-2 font-bold">{alertMessage}</label>
 				)}
