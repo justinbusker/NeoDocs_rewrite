@@ -1,54 +1,13 @@
-# React + TypeScript + Vite
+# NeoDocs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What is NeoDocs
+NeoDocs is a docs-like document editor built to be fast and allow quick movement between documents using some terminal-based ideas that I tend to use very regularly.
 
-Currently, two official plugins are available:
+## My Goals for NeoDocs
+My goals for this project are ultimately leading towards a document editor that I could actually use to take notes and quickly access documents that may be buried deep. I tend to have a bad case of not following a consistent naming convention for documents at school, this leads to me having to do multiple searches through my drive to eventually find the document that I am actively working on. While actively working on an assignment that is due soon, I find myself remembering what I wrote in the actual body of the document rather than the title that I set it as, so having a search similar to grep in NeoVim would be awesome. I also tend to have to split my screen a lot working on post labs for my ECEN classes, needing to look at my pre-lab to compare values.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+With these notes, the main features I want to complete are:
+- grep-like search through the body's of documents
+- screen splitting multiple (probably for now just two) documents at once
+- Live file sharing with other users
+- Keybindings to help aid a mouseless navigation, so your hands never leave your keyboard 
